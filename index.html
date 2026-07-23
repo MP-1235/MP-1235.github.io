@@ -3,45 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microcuento - 11 de Septiembre</title>
+    <title>Microcuento | 11 de Septiembre</title>
     <style>
+        /* Estilos generales de la página */
         body {
-            font-family: 'Georgia', serif;
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.8;
+            font-family: 'Bangers', 'Georgia', serif;
+            background-color: #121820;
+            color: #e0e6ed;
+            margin: 0;
+            padding: 60px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
         }
+
+        /* Contenedor principal estilo tarjeta */
+        .contenedor {
+            max-width: 620px;
+            width: 100%;
+            background-color: #1e2530;
+            padding: 50px 40px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-top: 3px solid #708090; /* Detalle sobrio en gris pizarra */
+        }
+
+        /* Título del cuento */
         h1 {
-            text-align: center;
             font-size: 1.8rem;
-            color: #111;
+            font-weight: 400;
+            text-align: center;
+            color: #f5f7fa;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
+
+        /* Nombre del autor o subtítulo */
         .autor {
             text-align: center;
+            font-size: 0.95rem;
+            color: #9ab0c7;
             font-style: italic;
-            color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
-        .cuento {
+
+        /* Separador elegante */
+        .separador {
+            width: 40px;
+            height: 1px;
+            background-color: #4a5a6e;
+            margin: 0 auto 35px auto;
+        }
+
+        /* Texto del cuento */
+        .texto-cuento {
             font-size: 1.15rem;
+            line-height: 2;
+            color: #d1dbe5;
             text-align: justify;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            hyphens: auto;
+        }
+
+        /* Estilo para la primera letra (capular) si deseas destacarla */
+        .texto-cuento p::first-letter {
+            font-size: 2.2rem;
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+            color: #ffffff;
+        }
+
+        /* Pie de página sutil */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #627488;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
-    <h1>El último día</h1>
-    <p class="autor">Por: Marcus Pozo</p>
+    <div class="contenedor">
+        <h1>TÍTULO DE TU CUENTO</h1>
+        <p class="autor">Por: Tu Nombre</p>
+        
+        <div class="separador"></div>
 
-    <div class="cuento">
-        <p>Trabajaba como en un día normal. Enviando correos y recibiendo paquetes, corriendo de aquí a allá. Pero, algo no se sentía bien, era como si algo macabro se planeaba a lo lejos. Un plan que difundiría terror y destruiría un símbolo del poder de la nación. Tuve poco tiempo para escapar. Pero ya era tarde, el impacto fue colosal, y el día que parecía normal, terminó en una tragedia.</p>
+        <div class="texto-cuento">
+            <p>Escribe o pega aquí tu microcuento. El diseño ya está ajustado para que la primera letra resalte de manera elegante y el espaciado de lectura sea cómodo y emotivo...</p>
+        </div>
+
+        <div class="footer">
+            11 de septiembre — Memoria y Ficción
+        </div>
     </div>
 
 </body>
