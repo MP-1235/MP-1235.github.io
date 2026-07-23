@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taller QR Art: Minificción Histórica</title>
+    
+    <!-- Enlace para cargar la fuente Bangers -->
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
     <style>
-        /* Estilos generales de la página */
         body {
-            font-family: 'Bangers', 'Georgia', serif;
+            font-family: 'Georgia', serif;
             background-color: #121820;
             color: #e0e6ed;
             margin: 0;
@@ -18,7 +21,6 @@
             min-height: 80vh;
         }
 
-        /* Contenedor principal estilo tarjeta */
         .contenedor {
             max-width: 620px;
             width: 100%;
@@ -26,20 +28,20 @@
             padding: 50px 40px;
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            border-top: 3px solid #708090; /* Detalle sobrio en gris pizarra */
+            border-top: 3px solid #708090;
         }
 
-        /* Título del cuento */
+        /* Aplica Bangers ÚNICAMENTE al título */
         h1 {
-            font-size: 1.8rem;
+            font-family: 'Bangers', cursive;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
             font-weight: 400;
             text-align: center;
             color: #f5f7fa;
-            letter-spacing: 1px;
             margin-bottom: 8px;
         }
 
-        /* Nombre del autor o subtítulo */
         .autor {
             text-align: center;
             font-size: 0.95rem;
@@ -48,7 +50,6 @@
             margin-bottom: 35px;
         }
 
-        /* Separador elegante */
         .separador {
             width: 40px;
             height: 1px;
@@ -56,7 +57,6 @@
             margin: 0 auto 35px auto;
         }
 
-        /* Texto del cuento */
         .texto-cuento {
             font-size: 1.15rem;
             line-height: 2;
@@ -65,16 +65,6 @@
             hyphens: auto;
         }
 
-        /* Estilo para la primera letra (capular) si deseas destacarla */
-        .texto-cuento p::first-letter {
-            font-size: 2.2rem;
-            float: left;
-            line-height: 1;
-            margin-right: 8px;
-            color: #ffffff;
-        }
-
-        /* Pie de página sutil */
         .footer {
             text-align: center;
             margin-top: 40px;
@@ -87,7 +77,7 @@
 <body>
 
     <div class="contenedor">
-        <h1>El último díaO</h1>
+        <h1>El último día</h1>
         <p class="autor">Por: Marcus Pozo</p>
         
         <div class="separador"></div>
