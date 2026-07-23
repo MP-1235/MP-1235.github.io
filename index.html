@@ -9,9 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 
     <style>
+        /* Estilos generales con el fondo del atardecer */
         body {
             font-family: 'Georgia', serif;
-            background-color: #121820;
+            background-image: url('atardecer.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #1a2a3a;
             color: #e0e6ed;
             margin: 0;
             padding: 60px 20px;
@@ -21,17 +26,18 @@
             min-height: 80vh;
         }
 
+        /* Contenedor tipo tarjeta */
         .contenedor {
             max-width: 620px;
             width: 100%;
-            background-color: #1e2530;
+            background-color: rgba(30, 37, 48, 0.95);
             padding: 50px 40px;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             border-top: 3px solid #708090;
         }
 
-        /* Aplica Bangers ÚNICAMENTE al título */
+        /* Título con fuente Bangers */
         h1 {
             font-family: 'Bangers', cursive;
             font-size: 2.8rem;
@@ -57,12 +63,47 @@
             margin: 0 auto 35px auto;
         }
 
+        /* Cuerpo del cuento */
         .texto-cuento {
             font-size: 1.15rem;
             line-height: 2;
             color: #d1dbe5;
             text-align: justify;
             hyphens: auto;
+        }
+
+        /* Primera letra capitular */
+        .texto-cuento p::first-letter {
+            font-size: 2.2rem;
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+            color: #ffffff;
+        }
+
+        /* Frase final dramática y en rojo */
+        .frase-final {
+            color: #ff4d4d;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 40px;
+            display: block;
+            animation: sacudida 0.5s infinite;
+        }
+
+        /* Animación de temblor / sacudida */
+        @keyframes sacudida {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
         }
 
         .footer {
@@ -83,7 +124,13 @@
         <div class="separador"></div>
 
         <div class="texto-cuento">
-            <p>Trabajaba como un día normal. Enviando correos y recibiendo paquetes. Corriendo por los pasillos con documentos importantes. Aún pensando que era un día más, sentía que algo extraño sucedería. Muy lejos, algo macabro concebía. Un plan siniestro que difundiría terror y cambiaría la visión de las naciones. Escuché gritos, y presencié como un símbolo de la fuerza del país se caería a pedazos. Habrá chance de escapar? Ya era tarde, el impacto fue colosal, un estruendo que estremecería a todo el mundo.</p>
+            <p>
+                Trabaja como un día normal. Enviando correos y recibiendo paquetes. Corriendo por los pasillos con documentos importantes. Aún pensando que era un día más, sentía que algo extraño sucedería. Muy lejos, algo macabro concebía. Un plan siniestro que difundiría terror y cambiaría la visión de las naciones. Escuché gritos, y presencié como un símbolo de la fuerza del país se caería a pedazos. ¿Habrá chance de escapar?
+            </p>
+            
+            <p class="frase-final">
+                Ya era tarde, el impacto fue colosal, un estruendo que estremecería a todo el mundo.
+            </p>
         </div>
 
         <div class="footer">
