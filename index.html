@@ -1,133 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller QR Art: Minificción Histórica</title>
-    
-    <!-- Enlace para cargar la fuente Bangers -->
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-
-    <style>
-        /* Estilos generales con el fondo del atardecer */
-        body {
-            font-family: 'Georgia', serif;
-            background-image: url('atardecer.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #1a2a3a;
-            color: #e0e6ed;
-            margin: 0;
-            padding: 60px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 80vh;
-        }
-
-        /* Contenedor tipo tarjeta */
-        .contenedor {
-            max-width: 620px;
-            width: 100%;
-            background-color: rgba(30, 37, 48, 0.95);
-            padding: 50px 40px;
-            border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            border-top: 3px solid #708090;
-        }
-
-        /* Título con fuente Bangers */
-        h1 {
-            font-family: 'Bangers', cursive;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
-            font-weight: 400;
-            text-align: center;
-            color: #f5f7fa;
-            margin-bottom: 8px;
-        }
-
-        .autor {
-            text-align: center;
-            font-size: 0.95rem;
-            color: #9ab0c7;
-            font-style: italic;
-            margin-bottom: 35px;
-        }
-
-        .separador {
-            width: 40px;
-            height: 1px;
-            background-color: #4a5a6e;
-            margin: 0 auto 35px auto;
-        }
-
-        /* Cuerpo del cuento */
-        .texto-cuento {
-            font-size: 1.15rem;
-            line-height: 2;
-            color: #d1dbe5;
-            text-align: justify;
-            hyphens: auto;
-        }
-
-        /* Frase final dramática y en rojo */
-        .frase-final {
-            color: #ff4d4d;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 40px;
-            display: block;
-            animation: sacudida 0.5s infinite;
-        }
-
-        /* Animación de temblor / sacudida */
-        @keyframes sacudida {
-            0% { transform: translate(1px, 1px) rotate(0deg); }
-            10% { transform: translate(-1px, -2px) rotate(-1deg); }
-            20% { transform: translate(-3px, 0px) rotate(1deg); }
-            30% { transform: translate(3px, 2px) rotate(0deg); }
-            40% { transform: translate(1px, -1px) rotate(1deg); }
-            50% { transform: translate(-1px, 2px) rotate(-1deg); }
-            60% { transform: translate(-3px, 1px) rotate(0deg); }
-            70% { transform: translate(3px, 1px) rotate(-1deg); }
-            80% { transform: translate(-1px, -1px) rotate(1deg); }
-            90% { transform: translate(1px, 2px) rotate(0deg); }
-            100% { transform: translate(1px, -2px) rotate(-1deg); }
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: #627488;
-            letter-spacing: 0.5px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sube / Comparte tu juego</title>
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#fff; --accent:#2b6cb0; --muted:#6b7280; --radius:12px;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    }
+    body{margin:0; min-height:100vh; background:linear-gradient(180deg,var(--bg),#eef2f7); display:flex; align-items:center; justify-content:center; padding:24px;}
+    .container{width:100%; max-width:820px; background:var(--card); border-radius:var(--radius); box-shadow:0 8px 30px rgba(17,24,39,0.08); padding:28px;}
+    header{display:flex; gap:20px; align-items:center; margin-bottom:18px;}
+    .logo-area{width:96px; height:96px; background:linear-gradient(180deg,#f8fafc,#fff); border-radius:10px; border:1px dashed #e6edf6; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; flex-shrink:0;}
+    .logo-area img{width:100%; height:100%; object-fit:contain; display:block; padding:6px;}
+    .logo-controls{display:flex; flex-direction:column; gap:8px;}
+    h1{font-size:18px;margin:0 0 6px 0}
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+    .form-row{margin-top:12px;display:flex;gap:12px;flex-wrap:wrap}
+    textarea{width:100%; min-height:120px; padding:12px; border-radius:10px; border:1px solid #e6edf6; resize:vertical; font-size:14px; color:#0b1220;}
+    .controls{display:flex; gap:12px; align-items:center; margin-top:14px; flex-wrap:wrap;}
+    .btn{background:var(--accent); color:white; padding:10px 14px; border-radius:10px; border:0; cursor:pointer; font-weight:600;}
+    .btn:disabled{opacity:0.5; cursor:not-allowed}
+    .file-label{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:10px; border:1px solid #e6edf6; background:#fff; cursor:pointer; color:#0b1220;}
+    .muted{color:var(--muted); font-size:13px}
+    .small{font-size:12px; color:var(--muted)}
+    .row{display:flex; gap:12px; align-items:center}
+    a.linkish{color:#0b6bd6; text-decoration:underline;}
+    @media (max-width:560px){ header{flex-direction:column; align-items:flex-start} .logo-area{width:84px;height:84px} }
+  </style>
 </head>
 <body>
+  <main class="container" role="main">
+    <header>
+      <div class="logo-area" id="logoPreview" aria-label="Vista previa logo">
+        <span class="small muted" id="logoEmpty">Logo</span>
+      </div>
 
-    <div class="contenedor">
-        <h1>El último día</h1>
-        <p class="autor">Por: Marcus Pozo</p>
-        
-        <div class="separador"></div>
+      <div class="logo-controls">
+        <h1>Sube y comparte tu juego</h1>
+        <p class="lead">Agrega un logo, escribe una descripción y sube el archivo .zip para que otros lo descarguen desde un enlace público.</p>
 
-        <div class="texto-cuento">
-            <p>
-                Trabajaba como un día normal, enviando correos y recibiendo paquetes, corriendo por los pasillos con documentos importantes. Aún pensando que era un día más, sentía que algo extraño sucedería, pero muy lejos, algo macabro concebía. Un plan siniestro que difundiría terror y cambiaría la visión de las naciones. Escuché gritos, y presencié como un símbolo de la fuerza del país se caería a pedazos. ¿Habrá chance de escapar?
-            </p>
-            
-            <p class="frase-final">
-                Ya era tarde, el impacto fue colosal, un estruendo que estremecería a todo el mundo.
-            </p>
+        <div class="form-row">
+          <label class="file-label" for="logoInput" title="Subir logo (.png, .jpg)">
+            Elegir logo
+            <input id="logoInput" type="file" accept="image/*" style="display:none">
+          </label>
+
+          <button id="removeLogo" class="btn" style="background:#ef4444">Eliminar logo</button>
         </div>
+      </div>
+    </header>
 
-        <div class="footer">
-            Taller QR Art: Minificción Histórica
-        </div>
-    </div>
+    <section>
+      <label for="description" class="hint">Descripción</label>
+      <textarea id="description" placeholder="Escribe una breve descripción de tu juego (qué es, controles, requisitos, créditos...)"></textarea>
+    </section>
 
+    <section style="margin-top:16px">
+      <div class="row">
+        <label class="file-label" for="zipInput">
+          Elegir .zip
+          <input id="zipInput" type="file" accept=".zip,application/zip" style="display:none">
+        </label>
+
+        <div class="muted small" id="zipInfo">Ningún archivo seleccionado</div>
+      </div>
+
+      <div class="controls">
+        <a id="downloadBtn" class="btn" href="#" download style="pointer-events:none;opacity:0.5">Descargar .zip (local)</a>
+
+        <button id="uploadBtn" class="btn" style="background:#059669">Subir y obtener enlace público</button>
+
+        <div class="small muted" id="status" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const logoInput = document.getElementById('logoInput');
+    const logoPreview = document.getElementById('logoPreview');
+    const logoEmpty = document.getElementById('logoEmpty');
+    const removeLogo = document.getElementById('removeLogo');
+
+    const zipInput = document.getElementById('zipInput');
+    const zipInfo = document.getElementById('zipInfo');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    const description = document.getElementById('description');
+    const status = document.getElementById('status');
+    const uploadBtn = document.getElementById('uploadBtn');
+
+    let currentZipURL = null;
+    let currentLogoURL = null;
+
+    // Logo preview
+    logoInput.addEventListener('change', e=>{
+      const f = e.target.files && e.target.files[0];
+      if(!f) return;
+      if(currentLogoURL) URL.revokeObjectURL(currentLogoURL);
+      currentLogoURL = URL.createObjectURL(f);
+      logoPreview.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = currentLogoURL;
+      img.alt = 'Logo';
+      logoPreview.appendChild(img);
+    });
+
+    removeLogo.addEventListener('click', e=>{
+      if(currentLogoURL) URL.revokeObjectURL(currentLogoURL);
+      currentLogoURL = null;
+      logoPreview.innerHTML = '';
+      logoPreview.appendChild(logoEmpty);
+      logoInput.value = '';
+    });
+
+    // ZIP handling and download link (local)
+    zipInput.addEventListener('change', e=>{
+      const f = e.target.files && e.target.files[0];
+      if(!f){
+        zipInfo.textContent = 'Ningún archivo seleccionado';
+        downloadBtn.style.pointerEvents = 'none';
+        downloadBtn.style.opacity = 0.5;
+        downloadBtn.removeAttribute('href');
+        downloadBtn.removeAttribute('download');
+        if(currentZipURL){ URL.revokeObjectURL(currentZipURL); currentZipURL=null; }
+        return;
+      }
+      zipInfo.textContent = `${f.name} — ${Math.round(f.size/1024)} KB`;
+      if(currentZipURL) URL.revokeObjectURL(currentZipURL);
+      currentZipURL = URL.createObjectURL(f);
+      downloadBtn.href = currentZipURL;
+      downloadBtn.download = f.name;
+      downloadBtn.style.pointerEvents = 'auto';
+      downloadBtn.style.opacity = 1;
+    });
+
+    // Upload to server and get shareable link
+    uploadBtn.addEventListener('click', async ()=>{
+      status.textContent = '';
+      if(!zipInput.files[0]){
+        status.textContent = 'Selecciona un archivo .zip antes de subir.';
+        return;
+      }
+      uploadBtn.disabled = true;
+      status.textContent = 'Subiendo...';
+      const fd = new FormData();
+      fd.append('description', description.value || '');
+      if(logoInput.files[0]) fd.append('logo', logoInput.files[0]);
+      fd.append('zipfile', zipInput.files[0]);
+
+      try{
+        const res = await fetch('/upload', { method: 'POST', body: fd });
+        if(!res.ok) throw new Error('Error HTTP ' + res.status);
+        const data = await res.json();
+        if(data && data.ok && data.url){
+          status.innerHTML = 'Subida completada. Enlace público: <a class="linkish" target="_blank" href="' + data.url + '">' + data.url + '</a>';
+        } else {
+          status.textContent = 'Subida completada (respuesta inesperada).';
+        }
+      } catch (err){
+        status.textContent = 'Error al subir: ' + err.message;
+      } finally {
+        uploadBtn.disabled = false;
+      }
+    });
+
+    // Limpieza de URLs al cerrar la página
+    window.addEventListener('unload', ()=>{
+      if(currentZipURL) URL.revokeObjectURL(currentZipURL);
+      if(currentLogoURL) URL.revokeObjectURL(currentLogoURL);
+    });
+  </script>
 </body>
 </html>
